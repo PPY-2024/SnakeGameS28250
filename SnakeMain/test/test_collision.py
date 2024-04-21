@@ -1,27 +1,32 @@
+import pygame
 import pytest
 
-from src.CustomDataStr import Point
+from src.game import Game
+from src.point import Point
 
 
 def test_instant_left_collision():
-    game = Game(5, 5)
-    game.snake.head = Point(0, 0)
-    game.snake.move('LEFT')
+    game = Game(5, 5, "Test")
+    game.snake.body[0] = Point(0, 0)
+    game.snake.changeDirection(pygame.K_LEFT)
+    game.snake.move()
     game.update()
-    assert game.game_over == True
+    assert game.game_over is True
 
 
 def test_self_collision():
-    game = Game(10, 10)
-    game.snake.body = [Point(6, 6), Point(6, 7), Point(5, 7), Point(5, 6), Point(5, 5)]
-    game.snake.move('UP')
+    game = Game(10, 10, "Test")
+
+    game.snake.body = [Point(120, 80), Point(140, 80), Point(140, 100), Point(120, 100), Point(100, 100)]
+    game.snake.changeDirection(pygame.K_DOWN)
+    game.snake.move()
     game.update()
-    assert game.game_over == True
+    assert game.game_over is True
 
 
 def test_no_collision():
-    game = Game(10, 10)
-    game.snake.head = Point(5, 5)
-    game.snake.move('RIGHT')
+    game = Game(10, 10, "Test")
+    game.snake.body[0] = Point(100, 100)
+    game.snake.move()
     game.update()
-    assert game.game_over == False
+    assert game.game_over is False

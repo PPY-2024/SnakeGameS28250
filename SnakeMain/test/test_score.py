@@ -1,20 +1,21 @@
 import pytest
 
-from src.CustomDataStr import Point
+from src.game import Game
+from src.point import Point
 
 
 def test_correct_increasing():
-    game = Game(25, 25)
-    game.snake.head = Point(5, 5)
-    game.apple = Point(5, 6)
-    game.snake.move('RIGHT')
+    game = Game(20, 20, "Test")
+    game.fruit = Point(220, 200)
+    game.snake.move()
     game.update()
-    assert game.score == 4  # initial size is always 3
+    assert game.score == 4
+
 
 def test_no_increasing():
-    game = Game(25, 25)
-    game.snake.head = Point(5, 5)
-    game.apple = Point(10, 5)
-    game.snake.move('RIGHT')
+    game = Game(25, 25, "Test")
+    initial_length = len(game.snake.body)
+    game.fruit = Point(200, 200)
+    game.snake.move()
     game.update()
-    assert game.score == 3
+    assert game.score == initial_length
