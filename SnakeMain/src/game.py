@@ -1,7 +1,7 @@
 import random
 import pygame
-from src.point import Point
-from src.snake import Snake
+from point import Point
+from snake import Snake
 
 
 class Game:
@@ -38,7 +38,7 @@ class Game:
 
     def run(self):
         clock = pygame.time.Clock()
-
+        pygame.time.delay(10000)
         while not self.game_over:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:

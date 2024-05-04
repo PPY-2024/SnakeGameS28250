@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  snake_game:
+    build: .
+    container_name: snake-game
