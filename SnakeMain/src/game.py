@@ -2,6 +2,7 @@ import random
 import pygame
 from point import Point
 from snake import Snake
+from mongoDB import store_game_result, dump_data_to_file
 
 
 class Game:
@@ -35,10 +36,10 @@ class Game:
                 self.snake.body[0].y < 0 or self.snake.body[0].y >= self.heightPixels or
                 self.snake.body[0] in self.snake.body[1:]):
             self.game_over = True
+            store_game_result("PlayerName", f"{self.widthPixels}x{self.heightPixels}", self.score)
 
     def run(self):
         clock = pygame.time.Clock()
-        pygame.time.delay(10000)
         while not self.game_over:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -58,4 +59,5 @@ class Game:
             pygame.display.flip()
             clock.tick(10)
 
+        dump_data_to_file("db/data.json")
         print("Game over | score: ", self.score)
