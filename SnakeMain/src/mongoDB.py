@@ -4,7 +4,7 @@ import json
 from pymongo import MongoClient
 from bson import ObjectId
 
-DB_DIR = os.path.join('db')
+DB_DIR = os.path.join('../db')
 DB_FILE = 'data.json'
 
 client = MongoClient('mongodb://localhost:27017/')

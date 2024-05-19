@@ -2,7 +2,7 @@ import random
 import pygame
 from point import Point
 from snake import Snake
-from mongoDB import store_game_result, dump_data_to_file
+from src.mongoDB import store_game_result, dump_data_to_file
 
 
 class Game:
