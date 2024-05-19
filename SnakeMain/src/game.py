@@ -8,7 +8,7 @@ from src.mongoDB import store_game_result, dump_data_to_file
 class Game:
     def __init__(self, widthSquares, heightSquares, text):
         pygame.init()
-
+        self.name = text
         self.widthPixels = widthSquares * 20
         self.heightPixels = heightSquares * 20
         self.snake = Snake(Point((widthSquares // 2) * 20, (heightSquares // 2) * 20))
@@ -36,7 +36,7 @@ class Game:
                 self.snake.body[0].y < 0 or self.snake.body[0].y >= self.heightPixels or
                 self.snake.body[0] in self.snake.body[1:]):
             self.game_over = True
-            store_game_result("PlayerName", f"{self.widthPixels}x{self.heightPixels}", self.score)
+            store_game_result(self.name, f"{self.widthPixels}x{self.heightPixels}", self.score)
 
     def run(self):
         clock = pygame.time.Clock()
