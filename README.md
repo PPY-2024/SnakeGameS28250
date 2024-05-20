@@ -11,7 +11,9 @@ Welcome to the Python Snake Game! This project brings the timeless arcade game S
 Follow these simple steps to get the game up and running on your machine:
 
 1. First, clone the repository from GitHub:
-2. Execute the main.py file:
+2. Second, move to SnakeMain directory
+3. Third, write pip install -r requirements.txt
+4. Execute the main.py file:
 
 
 ## Game Features
