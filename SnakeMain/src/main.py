@@ -1,6 +1,6 @@
 import pygame
 from game import Game
-from src.mongoDB import init_database_from_mongo
+from mongoDB import init_database_from_mongo
 
 
 def get_user_input():

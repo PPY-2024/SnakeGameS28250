@@ -7,7 +7,8 @@ from bson import ObjectId
 DB_DIR = os.path.join('../db')
 DB_FILE = 'data.json'
 
-client = MongoClient('mongodb://localhost:27017/')
+#client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb+srv://ladnyiartem:K4OZWuDANFCzcfxa@cluster0.qbgfium.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 db = client['game_database']
 collection = db['game_sessions']
 
