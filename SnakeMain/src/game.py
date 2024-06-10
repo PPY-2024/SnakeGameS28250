@@ -54,8 +54,8 @@ class Game:
                 for y in range(0, self.heightPixels, 20):
                     pygame.draw.rect(self.screen, (200, 200, 200), pygame.Rect(x, y, 20, 20), 1)
 
-            self.snake.draw(self.screen, (49, 71, 58))
-            self.fruit.draw(self.screen, (255, 0, 0))
+            self.snake.draw(self.screen)
+            self.snake.draw_fruit(self.screen, self.fruit)
             pygame.display.flip()
             clock.tick(10)
 
